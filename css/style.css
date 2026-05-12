@@ -132,7 +132,7 @@ body {
   color: var(--text-white); padding: 2rem; max-width: 750px;
 }
 .slider-content h1 {
-  font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;
+  font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem;
   letter-spacing: -0.03em;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   line-height: 1.15;
@@ -404,7 +404,7 @@ body {
 }
 .btn-historico {
   padding: 0.4rem 1rem;
-  background: linear-gradient(135deg, var(--verde), var(--laranja));
+  background: var(--laranja);
   color: white; border: none; border-radius: 6px; cursor: pointer;
   font-size: 0.8rem; font-weight: 600;
   transition: opacity var(--transition);
