@@ -500,6 +500,23 @@ body {
 }
 
 /* ===== PARCEIROS ===== */
+.desenvolvido-por {
+  text-align: center; margin-bottom: 3rem;
+}
+.desenvolvido-por .dev-title {
+  font-size: 0.9rem; font-weight: 600; color: var(--text-light);
+  text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.8rem;
+}
+.desenvolvido-por .dev-logo {
+  font-size: 2rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--verde), var(--laranja));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+}
+.desenvolvido-por .dev-desc {
+  font-size: 0.85rem; color: var(--text-light); margin-top: 0.4rem;
+}
 .parceiros-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 2rem; max-width: 1200px; margin: 0 auto; align-items: center;
