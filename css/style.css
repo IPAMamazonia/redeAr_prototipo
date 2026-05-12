@@ -519,12 +519,7 @@ body {
 }
 .parceiros-heading {
   text-align: center; font-size: 1.4rem; font-weight: 700;
-  color: var(--text-dark); margin-bottom: 2rem;
-}
-.parceiros-heading span {
-  background: linear-gradient(135deg, var(--verde), var(--laranja));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--laranja); margin-bottom: 2rem;
 }
 .parceiros-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
