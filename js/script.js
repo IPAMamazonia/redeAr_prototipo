@@ -394,7 +394,7 @@ function initChartControls() {
       nivel1Id = null;
       nivel2Id = null;
       populateNivel1();
-      nivel2.style.display = 'none';
+      resetNivel2();
       updateChart();
     });
   });
@@ -404,9 +404,9 @@ function initChartControls() {
     nivel2Id = null;
     if (nivel1Id && hasChildren(nivel1Id)) {
       populateNivel2();
-      nivel2.style.display = '';
+      nivel2.disabled = false;
     } else {
-      nivel2.style.display = 'none';
+      resetNivel2();
     }
     updateChart();
   });
@@ -449,13 +449,20 @@ function populateNivel1() {
   if (val) sel.value = val;
 }
 
+function resetNivel2() {
+  const sel = document.getElementById('filtroNivel2');
+  nivel2Id = null;
+  sel.innerHTML = '<option value="">Selecione primeiro</option>';
+  sel.disabled = true;
+}
+
 function populateNivel2() {
   const sel = document.getElementById('filtroNivel2');
   sel.innerHTML = '';
 
   if (filtroModo === 'estado') {
     const estado = ESTADOS.find(e => e.id === nivel1Id);
-    if (!estado || !estado.municipios.length) { sel.style.display = 'none'; return; }
+    if (!estado || !estado.municipios.length) { resetNivel2(); return; }
     sel.innerHTML = '<option value="">Todos os municípios</option>';
     estado.municipios.forEach(m => {
       const opt = document.createElement('option');
@@ -465,7 +472,7 @@ function populateNivel2() {
     });
   } else {
     const tipo = TIPOS_TERRITORIO.find(t => t.id === nivel1Id);
-    if (!tipo || !tipo.territorios.length) { sel.style.display = 'none'; return; }
+    if (!tipo || !tipo.territorios.length) { resetNivel2(); return; }
     sel.innerHTML = '<option value="">Todos os territórios</option>';
     tipo.territorios.forEach(ter => {
       const opt = document.createElement('option');
