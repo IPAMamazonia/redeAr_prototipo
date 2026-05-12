@@ -605,7 +605,7 @@ body {
   .grafico-controls { flex-direction: column; align-items: stretch; }
   .grafico-filtro { flex-direction: column; align-items: stretch; }
   .filtro-selects { flex-direction: column; }
-  .filtro-selects select { width: 100%; }
+  .filtro-selects select { width: 100% !important; }
   .slider-content h1 { font-size: 1.8rem; }
   .slider-btn { width: 44px; height: 44px; font-size: 1.1rem; }
   .slider-prev { left: 12px; }
