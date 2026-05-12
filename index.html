@@ -124,9 +124,18 @@
         <button class="btn-periodo" data-periodo="Max" title="Todo o período disponível">Máx</button>
       </div>
       <div class="grafico-filtro">
-        <select id="filtroLocal" aria-label="Filtrar por local">
-          <option value="todos">Todos os Locais</option>
-        </select>
+        <div class="filtro-tabs">
+          <button class="filtro-tab active" data-modo="estado">Estado</button>
+          <button class="filtro-tab" data-modo="territorio">Território</button>
+        </div>
+        <div class="filtro-selects">
+          <select id="filtroNivel1" aria-label="Selecionar">
+            <option value="">Selecione um estado</option>
+          </select>
+          <select id="filtroNivel2" aria-label="Detalhe" style="display:none">
+            <option value="">Todos os municípios</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="chart-container fade-up">

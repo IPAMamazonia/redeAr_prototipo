@@ -33,33 +33,78 @@ const SENSORES = [
   { id: 12, nome: 'São Gabriel da Cachoeira', cidade: 'São Gabriel da Cachoeira', estado: 'AM', lat: -0.1333, lon: -67.0833, aqi: 22, pm25: 5.8, pm10: 12.4 }
 ];
 
-// ===== LOCAIS PARA FILTRO DO GRÁFICO =====
-const LOCAIS_GRAFICO = [
-  { id: 'todos', nome: 'Todos os Locais', grupo: null, aqiBase: 55 },
-  { id: 'amazonas', nome: 'Amazonas', grupo: 'Estados', aqiBase: 42 },
-  { id: 'para', nome: 'Pará', grupo: 'Estados', aqiBase: 55 },
-  { id: 'matogrosso', nome: 'Mato Grosso', grupo: 'Estados', aqiBase: 78 },
-  { id: 'rondonia', nome: 'Rondônia', grupo: 'Estados', aqiBase: 85 },
-  { id: 'roraima', nome: 'Roraima', grupo: 'Estados', aqiBase: 32 },
-  { id: 'acre', nome: 'Acre', grupo: 'Estados', aqiBase: 68 },
-  { id: 'amapa', nome: 'Amapá', grupo: 'Estados', aqiBase: 30 },
-  { id: 'tocantins', nome: 'Tocantins', grupo: 'Estados', aqiBase: 54 },
-  { id: 'maranhao', nome: 'Maranhão', grupo: 'Estados', aqiBase: 62 },
-  { id: 'bioma_amazonia', nome: 'Amazônia', grupo: 'Biomas', aqiBase: 45 },
-  { id: 'bioma_cerrado', nome: 'Cerrado', grupo: 'Biomas', aqiBase: 72 },
-  { id: 'bioma_pantanal', nome: 'Pantanal', grupo: 'Biomas', aqiBase: 58 },
-  { id: 'ti_yanomami', nome: 'T.I. Yanomami', grupo: 'Terras Indígenas', aqiBase: 22 },
-  { id: 'ti_xingu', nome: 'T.I. Xingu', grupo: 'Terras Indígenas', aqiBase: 28 },
-  { id: 'ti_alto_negro', nome: 'T.I. Alto Rio Negro', grupo: 'Terras Indígenas', aqiBase: 20 },
-  { id: 'uc_flona', nome: 'Floresta Nacional da Amazônia', grupo: 'Unidades de Conservação', aqiBase: 26 },
-  { id: 'uc_parna_chapada', nome: 'P.N. Chapada dos Guimarães', grupo: 'Unidades de Conservação', aqiBase: 35 },
-  { id: 'uc_resex_chico', nome: 'Resex Chico Mendes', grupo: 'Unidades de Conservação', aqiBase: 30 }
+// ===== DADOS PARA FILTRO DO GRÁFICO =====
+const ESTADOS = [
+  { id: 'amazonas', nome: 'Amazonas', aqiBase: 42, municipios: [
+    { id: 'manaus', nome: 'Manaus', aqiBase: 42 },
+    { id: 'saogabriel', nome: 'São Gabriel da Cachoeira', aqiBase: 22 },
+    { id: 'parintins', nome: 'Parintins', aqiBase: 35 }
+  ]},
+  { id: 'para', nome: 'Pará', aqiBase: 55, municipios: [
+    { id: 'belem', nome: 'Belém', aqiBase: 58 },
+    { id: 'santarem', nome: 'Santarém', aqiBase: 45 },
+    { id: 'altamira', nome: 'Altamira', aqiBase: 52 }
+  ]},
+  { id: 'matogrosso', nome: 'Mato Grosso', aqiBase: 78, municipios: [
+    { id: 'cuiaba', nome: 'Cuiabá', aqiBase: 95 }
+  ]},
+  { id: 'rondonia', nome: 'Rondônia', aqiBase: 85, municipios: [
+    { id: 'portovelho', nome: 'Porto Velho', aqiBase: 85 }
+  ]},
+  { id: 'acre', nome: 'Acre', aqiBase: 68, municipios: [
+    { id: 'riobranco', nome: 'Rio Branco', aqiBase: 72 }
+  ]},
+  { id: 'roraima', nome: 'Roraima', aqiBase: 32, municipios: [
+    { id: 'boavista', nome: 'Boa Vista', aqiBase: 28 }
+  ]},
+  { id: 'amapa', nome: 'Amapá', aqiBase: 30, municipios: [
+    { id: 'macapa', nome: 'Macapá', aqiBase: 32 }
+  ]},
+  { id: 'tocantins', nome: 'Tocantins', aqiBase: 54, municipios: [
+    { id: 'palmas', nome: 'Palmas', aqiBase: 38 }
+  ]},
+  { id: 'maranhao', nome: 'Maranhão', aqiBase: 62, municipios: [
+    { id: 'saoluis', nome: 'São Luís', aqiBase: 48 }
+  ]}
 ];
+
+const TIPOS_TERRITORIO = [
+  { id: 'terras_indigenas', nome: 'Terras Indígenas', aqiBase: 24, territorios: [
+    { id: 'ti_yanomami', nome: 'T.I. Yanomami', aqiBase: 22 },
+    { id: 'ti_xingu', nome: 'T.I. Xingu', aqiBase: 28 },
+    { id: 'ti_alto_rio_negro', nome: 'T.I. Alto Rio Negro', aqiBase: 20 }
+  ]},
+  { id: 'unidades_conservacao', nome: 'Unidades de Conservação', aqiBase: 30, territorios: [
+    { id: 'uc_flona_amazonia', nome: 'FLONA da Amazônia', aqiBase: 26 },
+    { id: 'uc_parna_chapada', nome: 'P.N. Chapada dos Guimarães', aqiBase: 35 },
+    { id: 'uc_resex_chico', nome: 'RESEX Chico Mendes', aqiBase: 30 }
+  ]},
+  { id: 'quilombos', nome: 'Quilombos', aqiBase: 40, territorios: [
+    { id: 'quilombo_rio_macacos', nome: 'Quilombo Rio dos Macacos', aqiBase: 38 },
+    { id: 'quilombo_kalunga', nome: 'Quilombo Kalunga', aqiBase: 42 }
+  ]}
+];
+
+function getAQIBase(id) {
+  if (!id) return 55;
+  for (const e of ESTADOS) {
+    if (e.id === id) return e.aqiBase;
+    for (const m of e.municipios) {
+      if (m.id === id) return m.aqiBase;
+    }
+  }
+  for (const t of TIPOS_TERRITORIO) {
+    if (t.id === id) return t.aqiBase;
+    for (const ter of t.territorios) {
+      if (ter.id === id) return ter.aqiBase;
+    }
+  }
+  return 55;
+}
 
 // ===== GERAR DADOS DO GRÁFICO =====
 function gerarDadosHistorico(localId, periodo) {
-  const loc = LOCAIS_GRAFICO.find(l => l.id === localId) || LOCAIS_GRAFICO[0];
-  const baseAQI = loc.aqiBase;
+  const baseAQI = getAQIBase(localId);
   const volatilidade = baseAQI * 0.4;
 
   let pontos;
@@ -182,7 +227,13 @@ function initSlider() {
 // ===== GRÁFICO PRINCIPAL =====
 let mainChart = null;
 let periodoAtual = '1A';
-let localAtual = 'todos';
+let filtroModo = 'estado';
+let nivel1Id = null;
+let nivel2Id = null;
+
+function getLocalAtual() {
+  return nivel2Id || nivel1Id || null;
+}
 
 function initChart() {
   const ctx = document.getElementById('aqiChart');
@@ -192,7 +243,7 @@ function initChart() {
     try { Chart.register(ChartZoom); } catch (e) {}
   }
 
-  const dados = gerarDadosHistorico(localAtual, periodoAtual);
+  const dados = gerarDadosHistorico(getLocalAtual(), periodoAtual);
 
   mainChart = new Chart(ctx, {
     type: 'line',
@@ -226,7 +277,7 @@ function initChart() {
           callbacks: {
             label: function(ctx) {
               const idx = ctx.dataIndex;
-              const d = gerarDadosHistorico(localAtual, periodoAtual);
+              const d = gerarDadosHistorico(getLocalAtual(), periodoAtual);
               const cor = getCorAQI(d.valores[idx]);
               return [
                 ` AQI: ${d.valores[idx]}  (${getLabelAQI(d.valores[idx])})`,
@@ -235,7 +286,7 @@ function initChart() {
               ];
             },
             labelColor: function(ctx) {
-              const d = gerarDadosHistorico(localAtual, periodoAtual);
+              const d = gerarDadosHistorico(getLocalAtual(), periodoAtual);
               const cor = getCorAQI(d.valores[ctx.dataIndex]);
               return { borderColor: cor.cor, backgroundColor: cor.cor };
             }
@@ -313,7 +364,7 @@ function initChart() {
 
 function updateChart() {
   if (!mainChart) return;
-  const dados = gerarDadosHistorico(localAtual, periodoAtual);
+  const dados = gerarDadosHistorico(getLocalAtual(), periodoAtual);
   mainChart.data.labels = dados.labels;
   mainChart.data.datasets[0].data = dados.valores;
   mainChart.resetZoom();
@@ -322,7 +373,9 @@ function updateChart() {
 
 function initChartControls() {
   const botoes = document.querySelectorAll('.btn-periodo');
-  const select = document.getElementById('filtroLocal');
+  const nivel1 = document.getElementById('filtroNivel1');
+  const nivel2 = document.getElementById('filtroNivel2');
+  const tabs = document.querySelectorAll('.filtro-tab');
 
   botoes.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -333,16 +386,92 @@ function initChartControls() {
     });
   });
 
-  if (select) {
-    LOCAIS_GRAFICO.forEach(loc => {
-      const opt = document.createElement('option');
-      opt.value = loc.id;
-      opt.textContent = loc.nome;
-      select.appendChild(opt);
-    });
-    select.addEventListener('change', () => {
-      localAtual = select.value;
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filtroModo = tab.dataset.modo;
+      nivel1Id = null;
+      nivel2Id = null;
+      populateNivel1();
+      nivel2.style.display = 'none';
       updateChart();
+    });
+  });
+
+  nivel1.addEventListener('change', () => {
+    nivel1Id = nivel1.value || null;
+    nivel2Id = null;
+    if (nivel1Id && hasChildren(nivel1Id)) {
+      populateNivel2();
+      nivel2.style.display = '';
+    } else {
+      nivel2.style.display = 'none';
+    }
+    updateChart();
+  });
+
+  nivel2.addEventListener('change', () => {
+    nivel2Id = nivel2.value || null;
+    updateChart();
+  });
+
+  populateNivel1();
+}
+
+function hasChildren(id) {
+  for (const e of ESTADOS) if (e.id === id && e.municipios.length) return true;
+  for (const t of TIPOS_TERRITORIO) if (t.id === id && t.territorios.length) return true;
+  return false;
+}
+
+function populateNivel1() {
+  const sel = document.getElementById('filtroNivel1');
+  const val = sel.value;
+  sel.innerHTML = '';
+  if (filtroModo === 'estado') {
+    sel.innerHTML = '<option value="">Selecione um estado</option>';
+    ESTADOS.forEach(e => {
+      const opt = document.createElement('option');
+      opt.value = e.id;
+      opt.textContent = e.nome;
+      sel.appendChild(opt);
+    });
+  } else {
+    sel.innerHTML = '<option value="">Selecione um tipo</option>';
+    TIPOS_TERRITORIO.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t.id;
+      opt.textContent = t.nome;
+      sel.appendChild(opt);
+    });
+  }
+  if (val) sel.value = val;
+}
+
+function populateNivel2() {
+  const sel = document.getElementById('filtroNivel2');
+  sel.innerHTML = '';
+
+  if (filtroModo === 'estado') {
+    const estado = ESTADOS.find(e => e.id === nivel1Id);
+    if (!estado || !estado.municipios.length) { sel.style.display = 'none'; return; }
+    sel.innerHTML = '<option value="">Todos os municípios</option>';
+    estado.municipios.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = m.nome;
+      sel.appendChild(opt);
+    });
+  } else {
+    const tipo = TIPOS_TERRITORIO.find(t => t.id === nivel1Id);
+    if (!tipo || !tipo.territorios.length) { sel.style.display = 'none'; return; }
+    sel.innerHTML = '<option value="">Todos os territórios</option>';
+    tipo.territorios.forEach(ter => {
+      const opt = document.createElement('option');
+      opt.value = ter.id;
+      opt.textContent = ter.nome;
+      sel.appendChild(opt);
     });
   }
 }

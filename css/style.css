@@ -274,19 +274,47 @@ body {
   width: 60%; height: 3px; border-radius: 4px;
   background: var(--laranja);
 }
-.grafico-filtro select {
-  padding: 0.6rem 1.5rem 0.6rem 1rem;
+.grafico-filtro {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.filtro-tabs {
+  display: flex; gap: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.filtro-tab {
+  padding: 0.45rem 1.1rem; border: none;
+  background: transparent; cursor: pointer;
+  font-size: 0.82rem; font-weight: 600;
+  border-radius: 7px;
+  transition: all var(--transition); color: var(--text-light);
+}
+.filtro-tab:hover { color: var(--laranja); }
+.filtro-tab.active {
+  color: var(--text-dark);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.filtro-selects {
+  display: flex; gap: 0.5rem; align-items: center;
+}
+.filtro-selects select {
+  padding: 0.5rem 1.5rem 0.5rem 0.8rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-sm);
-  font-size: 0.9rem; color: var(--text-dark);
+  font-size: 0.85rem; color: var(--text-dark);
   background: var(--bg-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
-  min-width: 200px; appearance: auto;
+  min-width: 160px; appearance: auto;
   transition: border-color var(--transition);
 }
-.grafico-filtro select:focus {
+.filtro-selects select:focus {
   outline: none;
   border-color: var(--laranja);
 }
@@ -573,7 +601,9 @@ body {
   }
   .nav-links.open { right: 0; }
   .grafico-controls { flex-direction: column; align-items: stretch; }
-  .grafico-filtro select { width: 100%; }
+  .grafico-filtro { flex-direction: column; align-items: stretch; }
+  .filtro-selects { flex-direction: column; }
+  .filtro-selects select { width: 100%; }
   .slider-content h1 { font-size: 1.8rem; }
   .slider-btn { width: 44px; height: 44px; font-size: 1.1rem; }
   .slider-prev { left: 12px; }
