@@ -169,18 +169,21 @@ body {
   justify-content: space-between; align-items: center;
 }
 .grafico-periodos {
-  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  display: flex; gap: 0; flex-wrap: wrap;
 }
 .btn-periodo {
-  padding: 0.5rem 1rem; border: 2px solid #e0e0e0;
-  border-radius: 20px; background: var(--bg-white);
-  cursor: pointer; font-size: 0.85rem; font-weight: 600;
+  padding: 0.5rem 1rem; border: none;
+  border-right: 1px solid #d0d0d0;
+  background: transparent; cursor: pointer;
+  font-size: 0.85rem; font-weight: 600;
   transition: all var(--transition); color: var(--text-light);
+  position: relative;
 }
-.btn-periodo:hover { border-color: var(--laranja); color: var(--laranja); }
+.btn-periodo:last-child { border-right: none; }
+.btn-periodo:hover { color: var(--laranja); }
 .btn-periodo.active {
-  background: white; color: var(--laranja);
-  border-color: var(--laranja); box-shadow: 0 0 0 1px var(--laranja);
+  color: var(--laranja);
+  box-shadow: 0 3px 0 var(--laranja);
 }
 .grafico-filtro select {
   padding: 0.5rem 1.5rem 0.5rem 1rem;
