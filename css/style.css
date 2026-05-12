@@ -265,9 +265,14 @@ body {
 }
 .btn-periodo:hover { color: var(--laranja); }
 .btn-periodo.active {
-  color: var(--text-dark);
+  color: var(--laranja);
   background: white;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+.btn-periodo.active::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 3px; border-radius: 4px;
+  background: var(--laranja);
 }
 .grafico-filtro select {
   padding: 0.6rem 1.5rem 0.6rem 1rem;
@@ -451,7 +456,7 @@ body {
 .contato-form textarea { min-height: 120px; resize: vertical; }
 .btn-submit {
   padding: 0.85rem 2rem;
-  background: linear-gradient(135deg, var(--verde), var(--laranja));
+  background: var(--laranja);
   color: white; border: none; border-radius: var(--radius-sm);
   font-size: 1rem; font-weight: 600; cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
