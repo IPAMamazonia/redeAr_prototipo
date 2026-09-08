@@ -1,4 +1,5 @@
 import { Section, SectionHeading, FadeUp, FormInput, FormTextarea, SocialLinks, GradientText } from '@/components';
+import { contactMail } from '@/rules';
 import { useState } from 'react';
 
 /**
@@ -40,7 +41,7 @@ export function Contact() {
               <i className="fas fa-comments text-[#22A64A] mr-2"></i> Informações de Contato
             </h3>
             <p className="text-text-light mb-2">
-              <i className="fas fa-envelope text-[#22A64A] w-6"></i> contato@redear.org
+              <i className="fas fa-envelope text-[#22A64A] w-6"></i> {contactMail}
             </p>
             <p className="text-text-light mb-2">
               <i className="fas fa-phone text-[#22A64A] w-6"></i> +55 (92) 99999-8888

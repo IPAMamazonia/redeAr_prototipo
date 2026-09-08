@@ -1,4 +1,4 @@
-import { MAP_VARIABLES } from '@/rules/variables';
+import { MAP_VARIABLES } from '@/rules';
 
 /**
  * Obtém uma variável de mapa pela sua chave.

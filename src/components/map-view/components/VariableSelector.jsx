@@ -1,5 +1,5 @@
 import { setSelectedVariable } from '@/store/slices/uiSlice';
-import { MAP_VARIABLES } from '@/rules/variables';
+import { MAP_VARIABLES } from '@/rules';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 

@@ -9,16 +9,19 @@ const SLIDES = [
     img: fire1,
     title: 'RedeAr: Monitorando a Qualidade do Ar',
     subtitle: 'Dados em tempo real da qualidade do ar em todo o Brasil',
+    author: 'Foto: Filipe Viegas de Arruda',
   },
   {
     img: fire2,
     title: 'Monitoramento da qualidade do ar em territórios tradicionais',
     subtitle: '',
+    author: 'Foto: Bibiana Garrido',
   },
   {
     img: fire3,
     title: 'Qualidade do Ar Importa',
     subtitle: 'Acompanhe a qualidade do ar em tempo real e proteja sua saúde',
+    author: 'Foto: Victor Moriyama',
   },
 ];
 
@@ -79,10 +82,10 @@ export function HeroSlider() {
             style={{ transform: `translateX(-${current * 100}%)` }}
           >
             {SLIDES.map((slide, i) => (
-              <div key={i} className="min-w-full h-full relative flex items-center justify-center">
+              <div key={i} title={slide.author} className="min-w-full h-full relative flex items-center justify-center">
                 <img
                   src={slide.img}
-                  alt=""
+                  alt={slide.title}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-[6s] ease-out group-hover:scale-100"
                 />

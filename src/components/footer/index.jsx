@@ -1,4 +1,5 @@
 import { GradientText } from '@/components';
+import { contactMail } from '@/rules';
 
 function FooterLink({ href, children }) {
   const handleClick = (e) => {
@@ -50,7 +51,7 @@ export function Footer() {
         <FooterColumn title="Contato">
           <FooterLink href="#contato">Fale Conosco</FooterLink>
           <FooterLink href="#parceiros">Parceiros</FooterLink>
-          <FooterLink href="mailto:contato@redear.org">contato@redear.org</FooterLink>
+          <FooterLink href={`mailto:${contactMail}`}>{contactMail}</FooterLink>
         </FooterColumn>
 
         <FooterColumn title="Links">
