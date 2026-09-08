@@ -42,7 +42,7 @@ export function Footer() {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10 max-w-[1100px] mx-auto mb-10">
         <FooterColumn title="RedeAr">
           <FooterLink href="#sobre">Sobre</FooterLink>
-          <FooterLink href="#grafico">Gráfico</FooterLink>
+          {/*<FooterLink href="#grafico">Gráfico</FooterLink>*/}
           <FooterLink href="#mapa">Mapa</FooterLink>
           <FooterLink href="#faq">FAQ</FooterLink>
         </FooterColumn>
