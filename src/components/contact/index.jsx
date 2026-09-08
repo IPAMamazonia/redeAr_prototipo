@@ -1,5 +1,5 @@
 import { Section, SectionHeading, FadeUp, FormInput, FormTextarea, SocialLinks, GradientText } from '@/components';
-import { contactMail } from '@/rules';
+import { contactAddress, contactMail, contactPhone } from '@/rules';
 import { useState } from 'react';
 
 /**
@@ -44,10 +44,10 @@ export function Contact() {
               <i className="fas fa-envelope text-[#22A64A] w-6"></i> {contactMail}
             </p>
             <p className="text-text-light mb-2">
-              <i className="fas fa-phone text-[#22A64A] w-6"></i> +55 (92) 99999-8888
+              <i className="fas fa-phone text-[#22A64A] w-6"></i> {contactPhone}
             </p>
             <p className="text-text-light mb-2">
-              <i className="fas fa-map-marker-alt text-[#22A64A] w-6"></i> Manaus, Amazonas, Brasil
+              <i className="fas fa-map-marker-alt text-[#22A64A] w-6"></i> {contactAddress}
             </p>
             <p className="text-text-light mt-6 text-sm">
               Estamos abertos a parcerias com instituições de pesquisa, órgãos governamentais e organizações da

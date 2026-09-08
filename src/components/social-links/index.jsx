@@ -1,8 +1,10 @@
+import { contactGithub } from "@/rules";
+
 const LINKS = [
   { icon: 'fab fa-instagram', href: '#' },
   { icon: 'fab fa-twitter', href: '#' },
   { icon: 'fab fa-linkedin', href: '#' },
-  { icon: 'fab fa-github', href: '#' },
+  { icon: 'fab fa-github', href: contactGithub },
 ];
 
 /**

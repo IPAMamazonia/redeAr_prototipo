@@ -1,5 +1,5 @@
 import { GradientText } from '@/components';
-import { contactMail } from '@/rules';
+import { contactGithub, contactMail } from '@/rules';
 
 function FooterLink({ href, children }) {
   const handleClick = (e) => {
@@ -70,14 +70,14 @@ export function Footer() {
           <FooterLink href="#">
             <i className="fab fa-linkedin"></i> LinkedIn
           </FooterLink>
-          <FooterLink href="#">
+          <FooterLink href={contactGithub}>
             <i className="fab fa-github"></i> GitHub
           </FooterLink>
         </FooterColumn>
       </div>
 
       <div className="text-center pt-6 border-t border-white/10 text-sm text-white/35">
-        &copy; 2026 RedeAr. Todos os direitos reservados. Desenvolvido com{' '}
+        &copy; 2026 RedeAr. Todos os direitos reservados. Desenvolvido com {' '}
         <i className="fas fa-heart text-[#FF0000]"></i> pela equipe RedeAr.
       </div>
     </footer>
